@@ -40,6 +40,9 @@ inputs:
     description: 'Threshold percentages for badge and health indicators, lower threshold can also be used to fail the action.'
     required: false
     default: '50 75'
+  user:
+    required: false
+    default: '1000:1000'
 runs:
   using: 'docker'
   image: 'docker://ghcr.io/irongut/codecoveragesummary:v1.3.0'
@@ -62,3 +65,5 @@ runs:
     - ${{ inputs.output }}
     - '--thresholds'
     - ${{ inputs.thresholds }}
+    - '--user'
+    - ${{ inputs.user }}
